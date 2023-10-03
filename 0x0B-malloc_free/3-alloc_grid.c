@@ -1,42 +1,45 @@
 #include "main.h"
 #include <stdlib.h>
 /**
- * alloc_grind - function designed to allocate memory for a
+ * alloc_grid - function designed to allocate memory for a
  * two dimension array.
  * @width: input width
  * @height: input height
  * Return: pointer to a two dimensional array
  */
-int **alloc_grind(int width, int height)
+int **alloc_grid(int width, int height)
 {
-int **a;
+int **mee;
 int x, y;
 
 if (width <= 0 || height <= 0)
 return (NULL);
 
-a = (int **)malloc(height * sizeof(int *));
+mee = malloc(sizeof(int *) * height);
 
-if (a == NULL)
+if (mee == NULL)
 return (NULL);
 
 for (x = 0; x < height; x++)
 {
-a[x] = (int *)malloc(width * sizeof(int));
+mee[x] = malloc(sizeof(int) * width);
 
-if (a[x] == NULL)
+if (mee[x] == NULL)
 {
-while (x > 0)
-free(a[--x]);
-free(a);
+for (; x >= 0; x--)
+free(mee[x]);
+
+free(mee);
 return (NULL);
 }
 }
+
 for (x = 0; x < height; x++)
 {
 for (y = 0; y < width; y++)
-a[x][y] = 0;
+mee[x][y] = 0;
 }
-return (a);
+
+return (mee);
 }
 
