@@ -27,17 +27,17 @@ return (s);
  */
 void *_calloc(unsigned int nmemb, unsigned int size)
 {
-char *ptr;
+char *pointer;
 if (nmemb == 0 || size == 0)
 return (NULL);
 
-ptr = malloc(size * nmemb);
+pointer = malloc(size * nmemb);
 
-if (ptr == NULL)
+if (pointer == NULL)
 return (NULL);
 
-_memset(ptr, 0, nmemb * size);
+_memset(pointer, 0, nmemb * size);
 
-return (ptr);
+return (pointer);
 }
 
