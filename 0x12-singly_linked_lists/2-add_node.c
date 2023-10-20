@@ -6,24 +6,32 @@
  * @str: String
  * Return: NULL if it fails
  */
+
 list_t *add_node(list_t **head, const char *str)
 {
-list_t *new_element;
-size_t str_len = 0;
+	list_t *elements;
+	size_t str_len = 0;
 
-if (str == NULL)
-	str_len = 0;
-while (str[str_len] != '\0')
-	str_len++;
-new_element = malloc(sizeof(list_t));
-if (new_node == NULL)
-	return (NULL);
-if (*head == NULL)
-	new_element->next = NULL;
-else
-new_element->next = *head;
-new_element->str = strdup(str);
-new_element->len = str_len;
-*head = new_element;
-return (*head);
+	/*set strig length to 0 if its NULL*/
+	if (str == NULL)
+		str_len = 0;
+
+	/*count length of string*/
+	while (str[str_len] != '\0')
+		str_len++;
+
+	elements = malloc(sizeof(list_t));
+	if (elements == NULL)
+		return (NULL);
+
+	if (*head == NULL)
+		elements->next = NULL;
+	else
+		elements->next = *head;
+
+	elements->str = strdup(str);
+	elements->len = str_len;
+	*head = elements;
+
+	return (*head);
 }
