@@ -13,5 +13,10 @@ The intermediate file is converted into an Assembly file (.s), which is a file t
 
 The program code undergoes parsing (displays any syntax errors or warning on the terminal).
 
-To stop after compilation, use <gcc -c cfile>
+To pause  compilation after compiler, use <gcc -c cfile>
 
+3. Assembling
+Assembly code is converted into machine understandable language, the object code. To pause compilation after assembling, use <gcc -S cfile>.
+
+4. Linking
+Inclusion of library files into the program. .out file in UNIX OS.
